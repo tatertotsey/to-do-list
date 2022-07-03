@@ -1,0 +1,17 @@
+@use 'variables' as *
+
+#lists
+
+    .lists-content
+        @include make-left
+        gap: 2rem
+
+        h1
+            @include header-custom
+            border-bottom: 2px solid $list
+
+        .add-task
+            @include add-task
+
+            &:hover
+            @include hover-effect

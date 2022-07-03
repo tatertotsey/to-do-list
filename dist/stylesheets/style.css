@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: #E8E8E8;
+  color: #696969;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 4fr 0.5fr;
+  grid-template-columns: 250px;
+  height: 100%;
+  width: 250px;
+}
+.navbar .navbar-item {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  gap: 0.3rem;
+}
+.navbar .navbar-item .item {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  padding: 0.7rem;
+  transition: 0.1s;
+}
+.navbar .navbar-item .item:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+.navbar .navbar-item .list-item {
+  font-size: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.navbar #title {
+  font-size: 2.3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  padding: 0.7rem;
+}
+
+.fa-inbox {
+  color: #0080ff;
+  width: 20px;
+}
+
+.fa-star {
+  color: #f7d809;
+  width: 20px;
+}
+
+.fa-calendar-days {
+  color: #ff1493;
+  width: 20px;
+}
+
+.fa-cube {
+  color: #acacac;
+  width: 20px;
+}
+
+.fa-list-check {
+  color: #c4aead;
+  width: 20px;
+}
+
+#home .home-content {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem;
+  gap: 2rem;
+}
+#home .home-content h1 {
+  width: 60vw;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #0080ff;
+}
+#home .home-content .add-task {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 25rem;
+  transition: 0.1s;
+  flex-direction: column;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+#home .home-content .add-task .add-task-title {
+  gap: 0.5rem;
+  display: flex;
+}
+#home .home-content .add-task .task-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+#home .home-content .add-task .task-form form {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  color: #696969;
+  gap: 0.5rem;
+}
+#home .home-content .add-task .task-form form label {
+  align-self: center;
+}
+#home .home-content .add-task .task-form form input {
+  align-self: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: #696969;
+}
+#home .home-content .add-task .task-form form input[type=button] {
+  font-weight: bold;
+  width: 30px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+#home .home-content .add-task .task-form form input[type=button]:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+#home .home-content .add-task .task-form form input[type=submit] {
+  grid-area: 5/1/6/3;
+  border-radius: 5px;
+  padding: 0.75rem;
+  width: 5rem;
+  margin: 0 auto;
+  border: none;
+  background-color: white;
+  color: #696969;
+}
+#home .home-content .add-task .task-form form input[type=submit]:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+#home .home-content .add-task.active {
+  height: 22rem;
+}
+
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+#today .today-content {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem;
+  gap: 2rem;
+}
+#today .today-content h1 {
+  width: 60vw;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f7d809;
+}
+
+#upcoming .upcoming-content {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem;
+  gap: 2rem;
+}
+#upcoming .upcoming-content h1 {
+  width: 60vw;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ff1493;
+}
+
+#lists .lists-content {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem;
+  gap: 2rem;
+}
+#lists .lists-content h1 {
+  width: 60vw;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #acacac;
+}
+#lists .lists-content .add-task {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 25rem;
+  transition: 0.1s;
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}

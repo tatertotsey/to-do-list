@@ -1,0 +1,38 @@
+//colour palette
+$bg-nav: #E8E8E8
+$item-hover: #E0E0E0
+$text: #696969
+$inbox: #0080ff
+$star: #f7d809
+$upcoming: #ff1493
+$list: #acacac
+$new-list: #c4aead
+
+//fonts
+$text-nav: 'Roboto', sans-serif
+
+//mixins
+@mixin make-left
+    display: flex
+    flex-direction: column
+    margin: 6rem
+
+@mixin hover-effect
+    background-color: $item-hover
+    border-radius: 5px
+
+@mixin header-custom
+    width: 60vw
+    padding-bottom: 20px
+
+@mixin add-task
+    display: flex
+    gap: .5rem
+    padding: 1rem
+    width: 25rem
+    transition: 0.1s
+
+@mixin make-center
+    display: flex
+    justify-content: center
+    align-items: center
