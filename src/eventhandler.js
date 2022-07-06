@@ -1,3 +1,5 @@
+import { taskHandler } from "./taskhandler.js";
+
 function tabHandler() {
   const tabs = document.querySelectorAll("[data-tab-target]");
   const tabContents = document.querySelectorAll("[data-tab-content]");
@@ -26,8 +28,40 @@ function addTaskHandler() {
   });
 }
 
+function getCurrentDatetoHTML() {
+  const dueDate = document.getElementById("due-date");
+  dueDate.value = new Date().toISOString().slice(0, 10);
+}
+
+//get the form inputs
+const getFormInput = (() => {
+  const form = document.getElementsByClassName("task-form")[0];
+  const inputBtn = document.querySelectorAll("input[type=button]");
+  let priority = "!";
+  let inputList = [];
+
+  for (let btn of inputBtn) {
+    btn.addEventListener("click", () => {
+      priority = btn.value;
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    for (let input of e.target) {
+      if (input.type != "button" && input.type != "submit") {
+        inputList.push(input.value);
+      }
+    }
+    inputList.push(priority);
+    taskHandler(inputList);
+    inputList = [];
+  });
+})();
+
 function eventHandler() {
   tabHandler();
   addTaskHandler();
+  getCurrentDatetoHTML();
 }
 export default eventHandler;

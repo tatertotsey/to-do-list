@@ -16,8 +16,10 @@
             height: 50px
             overflow: hidden
             transition: 0.3s ease-out
+            background-color: $bg-nav
+            border-radius: 5px
             &:hover
-            @include hover-effect
+                @include hover-effect
 
             .add-task-title
                 gap: .5rem
@@ -55,7 +57,7 @@
                         &:hover
                             @include hover-effect
 
-                    input[type="submit"]
+                    #submit
                         grid-area: 5 / 1 / 6 / 3
                         border-radius: 5px
                         padding: .75rem
