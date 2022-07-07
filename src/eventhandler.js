@@ -1,4 +1,5 @@
 import { taskHandler } from "./taskhandler.js";
+import { clearFormInput } from "./display.js";
 
 function tabHandler() {
   const tabs = document.querySelectorAll("[data-tab-target]");
@@ -28,7 +29,14 @@ function addTaskHandler() {
   });
 }
 
-function getCurrentDatetoHTML() {
+// function checkboxHandler() {
+//   const cb = document.getElementById('cb');
+//   cb.addEventListener("click", () => {
+//     console.log(cb.checked)
+//   })
+// }
+
+export function getCurrentDatetoHTML() {
   const dueDate = document.getElementById("due-date");
   dueDate.value = new Date().toISOString().slice(0, 10);
 }
@@ -52,6 +60,7 @@ const getFormInput = (() => {
       if (input.type != "button" && input.type != "submit") {
         inputList.push(input.value);
       }
+      clearFormInput(input);
     }
     inputList.push(priority);
     taskHandler(inputList);
@@ -63,5 +72,6 @@ function eventHandler() {
   tabHandler();
   addTaskHandler();
   getCurrentDatetoHTML();
+  // checkboxHandler();
 }
 export default eventHandler;

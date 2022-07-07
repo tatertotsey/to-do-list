@@ -77,6 +77,11 @@ body {
   width: 20px;
 }
 
+.fa-pen-to-square, .fa-trash-can {
+  color: #696969;
+  width: 20px;
+}
+
 #home .home-content {
   display: flex;
   flex-direction: column;
@@ -210,6 +215,40 @@ body {
   padding: 1rem;
   width: 25rem;
   transition: 0.1s;
+}
+#lists .lists-content .add-task:hover {
   background-color: #E0E0E0;
   border-radius: 5px;
+}
+
+.new-task-container {
+  width: 50rem;
+}
+.new-task-container input {
+  border: 1px solid #696969;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  vertical-align: bottom;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.new-task-container input:checked {
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  accent-color: #0080ff;
+}
+.new-task-container .right-side {
+  display: flex;
+  float: right;
+  gap: 1rem;
+}
+.new-task-container .right-side p {
+  color: #696969;
 }

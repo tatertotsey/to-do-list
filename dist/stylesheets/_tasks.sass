@@ -1,0 +1,28 @@
+@use 'variables' as *
+
+.new-task-container
+    width: 50rem
+
+    input
+        border: 1px solid $text
+        width: 18px
+        height: 18px
+        border-radius: 50%
+        vertical-align: bottom
+        appearance: none
+        -webkit-appearance: none
+        cursor: pointer
+        margin-right: 1rem
+
+        &:checked
+            appearance: auto
+            clip-path: circle(50% at 50% 50%)
+            accent-color: $inbox
+
+    .right-side
+        display: flex
+        float: right
+        gap: 1rem
+
+        p
+            color: $text
