@@ -29,16 +29,23 @@ function addTaskHandler() {
   });
 }
 
-// function checkboxHandler() {
-//   const cb = document.getElementById('cb');
-//   cb.addEventListener("click", () => {
-//     console.log(cb.checked)
-//   })
-// }
+function checkboxHandler() {
+  const checkboxAll = document.getElementsByClassName("cb");
+  const home = document.getElementsByClassName("home-content")[0];
+
+  for (let cb of checkboxAll) {
+    cb.addEventListener("click", () => {
+      if (cb.checked) {
+        home.appendChild(cb.parentNode);
+      }
+    });
+  }
+}
 
 export function getCurrentDatetoHTML() {
   const dueDate = document.getElementById("due-date");
   dueDate.value = new Date().toISOString().slice(0, 10);
+  return dueDate.value;
 }
 
 //get the form inputs
@@ -50,7 +57,7 @@ const getFormInput = (() => {
 
   for (let btn of inputBtn) {
     btn.addEventListener("click", () => {
-      priority = btn.value;
+      priority = btn.style.backgroundColor;
     });
   }
 
@@ -64,6 +71,7 @@ const getFormInput = (() => {
     }
     inputList.push(priority);
     taskHandler(inputList);
+    getCurrentDatetoHTML();
     inputList = [];
   });
 })();
@@ -72,6 +80,6 @@ function eventHandler() {
   tabHandler();
   addTaskHandler();
   getCurrentDatetoHTML();
-  // checkboxHandler();
+  checkboxHandler();
 }
 export default eventHandler;

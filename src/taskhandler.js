@@ -1,24 +1,33 @@
 import { updateLocalStorage, getLocalStorage } from "./storage.js";
-import { showAllTasks } from "./display.js";
+import { resetTasks, displayTask } from "./display.js";
 
 export const taskList = (() => {
   let tasklist = [];
   const addNewTask = (task) => {
     tasklist.push(task);
+    sortByDate(tasklist);
     updateLocalStorage(tasklist);
-    updateDisplay(task);
+    updateDisplay();
   };
   const displayAllfromStorage = () => {
     tasklist = getLocalStorage();
+
     if (tasklist == null) {
       tasklist = [];
     }
     tasklist.forEach((array) => {
-      showAllTasks(array);
+      displayTask(array);
     });
   };
-  const updateDisplay = (task) => {
-    showAllTasks(task);
+  const updateDisplay = () => {
+    resetTasks();
+    displayAllfromStorage();
+  };
+
+  const sortByDate = (tasklist) => {
+    tasklist = tasklist.sort(function (a, b) {
+      return Date.parse(a[2]) - Date.parse(b[2]);
+    });
   };
 
   return { addNewTask, tasklist, displayAllfromStorage, updateDisplay };

@@ -1,5 +1,5 @@
-export function updateLocalStorage(taskList) {
-  localStorage.setItem("taskList", JSON.stringify(taskList));
+export function updateLocalStorage(tasklist) {
+  localStorage.setItem("taskList", JSON.stringify(tasklist));
 }
 
 export function getLocalStorage() {
