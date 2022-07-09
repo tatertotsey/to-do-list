@@ -1,6 +1,7 @@
 @use 'variables' as *
 
 #today
+    overflow: scroll
 
     .today-content
         @include make-left
@@ -10,4 +11,5 @@
             @include header-custom
             border-bottom: 2px solid $star
 
-        
+::-webkit-scrollbar
+    display: none

@@ -1,6 +1,7 @@
 @use 'variables' as *
 
 #upcoming
+    overflow: scroll
 
     .upcoming-content
         @include make-left
@@ -10,4 +11,5 @@
             @include header-custom
             border-bottom: 2px solid $upcoming
 
-        
+::-webkit-scrollbar
+    display: none

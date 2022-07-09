@@ -1,6 +1,7 @@
 @use 'variables' as *
 
 #home
+    overflow: scroll
 
     .home-content
         @include make-left
@@ -9,6 +10,7 @@
         h1
             @include header-custom
             border-bottom: 2px solid $inbox
+
 
         .add-task
             @include add-task
@@ -72,5 +74,5 @@
         .add-task.active
             height: 22rem
 
-
-          
+::-webkit-scrollbar
+    display: none
