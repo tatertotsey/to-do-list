@@ -1,5 +1,6 @@
 import { taskHandler } from "./taskhandler.js";
-import { clearFormInput } from "./display.js";
+import { clearFormInput, addTaskforLists } from "./display.js";
+
 
 function tabHandler() {
   const tabs = document.querySelectorAll("[data-tab-target]");
@@ -47,6 +48,76 @@ export function getCurrentDatetoHTML() {
   dueDate.value = new Date().toISOString().slice(0, 10);
   return dueDate.value;
 }
+const addNewList = () => {
+  const newListBtn = document.getElementsByClassName("last-nav")[0];
+  const listWrapper = document.getElementById('list-wrapper')
+  let id = 0;
+  newListBtn.addEventListener("click", () => {
+    let cloned = document.createElement('div');
+    cloned.classList = "item list-item";
+    cloned.setAttribute('data-tab-target', '#list-item-' + id )
+    cloned.innerHTML = `<i class="fa-solid fa-list-check"></i>
+                        <p class="list-text">DoubleClickMe</p></div>`
+    listWrapper.appendChild(cloned);
+    changeListName();
+    createListContent();
+    tabHandler();
+    id++;
+  });
+};
+
+const changeListName = () => {
+  const itemName = document.querySelectorAll(".list-text");
+  itemName.forEach((itemname) => {
+    itemname.ondblclick = () => {
+      itemname.contentEditable = true;
+      setTimeout(() => {
+        if (document.activeElement !== itemname) {
+          itemname.onblur = () => {
+            itemname.contentEditable = false;
+          };
+        }
+      }, 300);
+    };
+  });
+};
+let id = 0;
+const createListContent = () => {
+  const body = document.querySelector('body');
+  const itemName = document.querySelectorAll(".list-text")[0].innerText;
+  const listItemContent = document.createElement("div");
+  listItemContent.id = 'list-item-' + id;
+  listItemContent.setAttribute('data-tab-content', '');
+  listItemContent.innerHTML = `<div class="list-item-content">
+                              <h1>${itemName}</h1>
+                              </div>
+                              </div>`;
+
+  addTaskforLists(listItemContent);
+
+  body.appendChild(listItemContent);
+  id++;
+};
+
+const loadListContent = () => {
+  const body = document.querySelector('body');
+  const itemName = document.querySelectorAll(".list-text")[0].innerText;
+  const listItem = document.querySelectorAll(".list-item");
+  
+  listItem.forEach(item => {
+    console.log('hi')
+    const listItemContent = document.createElement("div");
+    listItemContent.id = 'list-item-' + id;
+    listItemContent.setAttribute('data-tab-content', '');
+    listItemContent.innerHTML = `<div class="list-item-content">
+                                <h1>${itemName}</h1>
+                                </div>
+                                </div>`
+    body.appendChild(listItemContent);
+    id++;
+  })
+}
+
 
 //get the form inputs
 const getFormInput = (() => {
@@ -81,5 +152,7 @@ function eventHandler() {
   addTaskHandler();
   getCurrentDatetoHTML();
   checkboxHandler();
+  addNewList();
+  loadListContent();
 }
 export default eventHandler;

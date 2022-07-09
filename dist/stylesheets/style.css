@@ -288,3 +288,87 @@ body {
 .new-task-container .right-side p {
   color: #696969;
 }
+
+[id^=list-item-] .list-item-content {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem;
+  gap: 2rem;
+}
+[id^=list-item-] .list-item-content h1 {
+  width: 60vw;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #c4aead;
+}
+[id^=list-item-] .add-task {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 25rem;
+  transition: 0.1s;
+  flex-direction: column;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+  background-color: #E8E8E8;
+  border-radius: 5px;
+}
+[id^=list-item-] .add-task:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+[id^=list-item-] .add-task .add-task-title {
+  gap: 0.5rem;
+  display: flex;
+}
+[id^=list-item-] .add-task .task-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+[id^=list-item-] .add-task .task-form form {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  color: #696969;
+  gap: 0.5rem;
+}
+[id^=list-item-] .add-task .task-form form label {
+  align-self: center;
+}
+[id^=list-item-] .add-task .task-form form input {
+  align-self: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: #696969;
+}
+[id^=list-item-] .add-task .task-form form input[type=button] {
+  font-weight: bold;
+  width: 30px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+[id^=list-item-] .add-task .task-form form input[type=button]:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+[id^=list-item-] .add-task .task-form form #submit {
+  grid-area: 5/1/6/3;
+  border-radius: 5px;
+  padding: 0.75rem;
+  width: 5rem;
+  margin: 0 auto;
+  border: none;
+  background-color: white;
+  color: #696969;
+}
+[id^=list-item-] .add-task .task-form form #submit:hover {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+[id^=list-item-] .add-task.active {
+  height: 22rem;
+}

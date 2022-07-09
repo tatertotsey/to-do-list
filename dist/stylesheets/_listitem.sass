@@ -1,0 +1,73 @@
+@use 'variables' as *
+
+[id^='list-item-']
+
+    .list-item-content
+        @include make-left
+        gap: 2rem
+
+        h1
+            @include header-custom
+            border-bottom: 2px solid $new-list
+
+    .add-task
+        @include add-task
+        flex-direction: column
+        height: 50px
+        overflow: hidden
+        transition: 0.3s ease-out
+        background-color: $bg-nav
+        border-radius: 5px
+        &:hover
+            @include hover-effect
+
+        .add-task-title
+            gap: .5rem
+            display: flex
+
+        .task-form
+            margin-top: 1rem
+            padding: 1rem
+            border-radius: 5px
+            background-color: whitesmoke
+
+            form
+                display: grid
+                grid-template-columns: .5fr 1fr
+                grid-template-rows: repeat(5, 1fr)
+                color: $text
+                gap: .5rem
+
+                label
+                    align-self: center
+
+                input
+                    align-self: center
+                    padding: .5rem
+                    border-radius: 5px
+                    border: none
+                    color: $text
+
+                input[type="button"]
+                    font-weight: bold
+                    width: 30px
+                    height: 35px
+                    border: none
+                    background-color: white
+                    &:hover
+                        @include hover-effect
+
+                #submit
+                    grid-area: 5 / 1 / 6 / 3
+                    border-radius: 5px
+                    padding: .75rem
+                    width: 5rem
+                    margin: 0 auto
+                    border: none
+                    background-color: white
+                    color: $text
+                    &:hover
+                        @include hover-effect
+
+    .add-task.active
+        height: 22rem
