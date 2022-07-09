@@ -82,6 +82,9 @@ body {
   width: 20px;
 }
 
+#home {
+  overflow: scroll;
+}
 #home .home-content {
   display: flex;
   flex-direction: column;
@@ -166,6 +169,10 @@ body {
   height: 22rem;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 [data-tab-content] {
   display: none;
 }
@@ -174,6 +181,9 @@ body {
   display: block;
 }
 
+#today {
+  overflow: scroll;
+}
 #today .today-content {
   display: flex;
   flex-direction: column;
@@ -186,6 +196,13 @@ body {
   border-bottom: 2px solid #f7d809;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+#upcoming {
+  overflow: scroll;
+}
 #upcoming .upcoming-content {
   display: flex;
   flex-direction: column;
@@ -196,6 +213,10 @@ body {
   width: 60vw;
   padding-bottom: 20px;
   border-bottom: 2px solid #ff1493;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 #lists .lists-content {
@@ -223,6 +244,21 @@ body {
 
 .new-task-container {
   width: 50rem;
+  padding: 5px;
+  border-radius: 5px;
+}
+.new-task-container .center {
+  display: none;
+  font-style: italic;
+  color: #696969;
+}
+.new-task-container:hover {
+  background-color: #F8F8F8;
+}
+.new-task-container:hover .center {
+  display: inline-block;
+  position: relative;
+  left: 20%;
 }
 .new-task-container input {
   border: 1px solid #696969;
